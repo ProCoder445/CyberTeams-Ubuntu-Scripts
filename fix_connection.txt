@@ -1,0 +1,5 @@
+To see if there is a DNS error on your machine (linux), run this cmd: nslookup google.com
+
+If a SERVFAIL error comes up, there is a DNS error, if not RESEARCH!
+
+If so, do sudo vim "/etc/resolv.conf", and add/replace a line with: 
