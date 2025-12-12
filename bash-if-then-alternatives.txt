@@ -1,0 +1,12 @@
+Different alternatives to use instead of if __; then; in bash
+
+&& = Only run the second command ONLY IF the first command succeeded.
+
+|| = Opposite of &&, will run the second command ONLY IF the first command did not succeed.
+
+; = Will run the next command regardless of the output of the previous command. Same as having a \n
+
+& = Runs BOTH COMMANDS concurrently (Stops the first command midway through, starts the second command, keeps both running at the same time)
+
+
+Good Youtube tutorial for these: https://www.youtube.com/watch?v=p0KKBmfiVl0
