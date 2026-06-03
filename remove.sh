@@ -11,7 +11,7 @@ done
 echo "Do you want to activate unsafe remove?: "
 read -r unsafe_rm
 
-if [[${unsafe_rm,,} == "yes"]]; then
+if [[ "${unsafe_rm,,}" == "yes" ]]; then
 	for app in ${unsafe_remove[@]}; do
 		sudo apt remove ${app,,} -y
 	done
