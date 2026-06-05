@@ -14,7 +14,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-source ./MacOS-sudo-replacement.sh
+source ./MacOS-sudo-replace.sh
 
 # === Configuration ===
 # Minimum UID to consider as a "normal" (non-system) user on Debian/Ubuntu family
@@ -207,7 +207,7 @@ check_password_state() {
 
 # === Start ===
 
-if [[ $EUID -ne 0 ]]; then
+if [[ $EUID -ne 0 ]] && [[ -f MacOs-sudo-replace ]]; then
   echo "This script must be run as root. Use sudo."
   exit 1
 fi
