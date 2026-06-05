@@ -14,6 +14,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+source ./MacOS-sudo-replacement.sh
+
 # === Configuration ===
 # Minimum UID to consider as a "normal" (non-system) user on Debian/Ubuntu family
 MIN_USER_UID=1000
