@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# shellcheck source=/dev/null
 source ./MacOS-sudo-replace.sh;
 
 remove=("netcat" "telnet" "john" "ophcrack" "nc" "nmap" "wireshark" "netbus" "keylog" "VNC" "Cryptcat" "crack" "hydra" "telnet")
