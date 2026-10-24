@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu pipefail;
 
 echo "Starting program.";
 
-((nslookup google.com | grep "SERVFAIL") && echo "SERVFAIL detected!") || (echo "No problems found!" && exit 0;
+( (nslookup google.com | grep "SERVFAIL") && echo "SERVFAIL detected!") || (echo "No problems found!" && exit 0);
 
 if [[ -f /etc/resolv.conf ]]; then
     echo "Found resolv.conf!";

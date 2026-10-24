@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ss -tlnp
 #ss = show socket statistics
 # -t = show only TCP sockets

@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ "${OSTYPE}" == darwin* ]]; then 
     sudo() {
-	echo "[FAKE SUDO]: $@"
+	echo "[FAKE SUDO]: " + "$@"
 	return 0
     }
 fi

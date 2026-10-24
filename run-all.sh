@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-for file in "$(ls)"; do
+for file in ./*; do
     if [[ "${file}" == *.sh ]]; then
-	./${file} || echo "File unable to be run: ${file}";
+	./"${file}" || echo "File unable to be run: ${file}";
     fi
 done

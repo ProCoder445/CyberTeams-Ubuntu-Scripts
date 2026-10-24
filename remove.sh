@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 
 source ./MacOS-sudo-replace.sh;
 
@@ -7,15 +6,15 @@ remove=("netcat" "telnet" "john" "ophcrack" "nc" "nmap" "wireshark" "netbus" "ke
 
 unsafe_remove=("web" "nc" "cat" "")
 
-for app in ${remove[@]}; do
-	sudo apt remove ${app,,} -y
+for app in "${remove[@]}"; do
+	sudo apt remove "${app,,}" -y
 done
 
 echo "Do you want to activate unsafe remove?: "
 read -r unsafe_rm
 
 if [[ "${unsafe_rm,,}" == "yes" ]]; then
-	for app in ${unsafe_remove[@]}; do
-		sudo apt remove ${app,,} -y
+	for app in "${unsafe_remove[@]}"; do
+		sudo apt remove "${app,,}" -y
 	done
 fi
