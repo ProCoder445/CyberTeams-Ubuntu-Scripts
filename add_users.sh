@@ -14,6 +14,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+
+# shellcheck source=/dev/null
 source ./MacOS-sudo-replace.sh
 
 # === Configuration ===
@@ -37,7 +39,7 @@ to_user_array() {
   local input="$1"
   # replace commas with spaces, then split
   # remove empty items and de-dup
-  read -r -a arr <<< "$(tr ',' ' ' <<< "$input")"
+  read -ra arr <<< "$(tr ',' ' ' <<< "$input")"
   declare -A seen
   local out=()
   for u in "${arr[@]}"; do
@@ -130,11 +132,6 @@ delete_user() {
 }
 
 # Check if user is in a given group
-user_in_group() {
-  local u="$1"
-  local g="$2"
-  getent group "$g" | awk -F: -v user="$u" '{ split($4, a, ","); for(i in a) if(a[i]==user) { print "yes"; exit } }'
-}
 
 # Ensure group membership
 ensure_group_membership() {
