@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
-
-
+# shellcheck source=/dev/null
 source ./MacOS-sudo-replace.sh
 
-source ./MacOS-sudo-replace.sh
+echo "Are you on Mint? (Y/N): "
+read -r Mint;
+
+if [[ "${Mint,,}" == "y" ]]; then
+    echo "Have you clicked the \"Reset Configuration\" button (In the Update Manager) yet (Y/N): "
+    read -r reset;
+    if [[ "${reset,,}" == "n" ]]; then
+        echo "You should do that, then come back and rerun the script."
+        exit 1;
+    fi
+
+fi
 
 sudo apt update -y &&  sudo apt dist-upgrade -y;
 
-echo "If you're on Mint, have you run the \"Reset Config Files\" (In the Update Manager)";
 
 exit 0;

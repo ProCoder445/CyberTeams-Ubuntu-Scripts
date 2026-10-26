@@ -7,8 +7,8 @@ ss -tlnp
 # -n = show numebrical IP address ports (i.e. 0.0.0.0:22 instead of ssh)
 # -p = show the process associated with that port
 
-ps -ef | grep "python"
-#ps = show process status
+pgrep -ef "python";
+#pgrep = show process status and greps for the specified string
 #-e = show processes for all users, not just current users' processes
 #-f = show full format, including:
 

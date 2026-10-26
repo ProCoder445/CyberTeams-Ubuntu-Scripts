@@ -3,7 +3,7 @@
 # shellcheck source=/dev/null
 source ./MacOS-sudo-replace.sh;
 
-remove=("netcat" "telnet" "john" "ophcrack" "nc" "nmap" "wireshark" "netbus" "keylog" "VNC" "Cryptcat" "crack" "hydra" "telnet")
+remove=("telnet" "john" "ophcrack" "nmap" "wireshark" "netbus" "keylog" "VNC" "Cryptcat" "crack" "hydra" "telnet")
 
 unsafe_remove=("web" "nc" "cat" "")
 
@@ -11,10 +11,10 @@ for app in "${remove[@]}"; do
 	sudo apt remove "${app,,}" -y
 done
 
-echo "Do you want to activate unsafe remove?: "
+echo "Do you want to activate unsafe remove? (Y/N): "
 read -r unsafe_rm
 
-if [[ "${unsafe_rm,,}" == "yes" ]]; then
+if [[ "${unsafe_rm,,}" == "y" ]]; then
 	for app in "${unsafe_remove[@]}"; do
 		sudo apt remove "${app,,}" -y
 	done

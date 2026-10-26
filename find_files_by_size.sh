@@ -10,8 +10,8 @@ find_files_by_size() {
 }
 
 # Main script
-read -p "Enter the directory to search: " directory
-read -p "Enter the file size to search for (in bytes): " target_size
+read -rp "Enter the directory to search: " directory
+read -rp "Enter the file size to search for (in bytes): " target_size
 
 # Validate if target size is a number
 if ! [[ "$target_size" =~ ^[0-9]+$ ]]; then
