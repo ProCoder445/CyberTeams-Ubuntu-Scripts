@@ -1,5 +1,0 @@
-To make sure that you have to use sudo with a password, do
-
-sudo vim /etc/sudoers
-then change the line that says Default !authenticate to Default authenticate
-or delete <user || ALL> ALL=(ALL) NOPASSWD: ALL
