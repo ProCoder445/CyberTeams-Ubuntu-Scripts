@@ -1,27 +1,30 @@
 #!/usr/bin/env bash
 
-source ../MacOS-sudo-replace.sh;
-source debian-updates.sh;
+source ../MacOS-sudo-replace.sh
+source debian-updates.sh
+
+sudo apt-get install apt-listbugs -y;
+
+sudo DEBIAN_FRONTEND=non-interactive apt-get install -y \
+libpam-tmpdir \
+needrestart \
+fail2ban
 
 #libpam-tmpdir cfg
-sudo apt install libpam-tmpdir;
 sudo pam-auth-update --package tmpdir
 
 #apt-listugs cfg
-sudo apt install apt-listbugs;
 sudo tee /etc/apt/apt.conf.d/90-apt-listbugs-local >/dev/null <<'EOF'
 AptListbugs::Severites "critical,grave,serious,important"
 EOF
 
-#needrestart cfg
-sudo apt install needrestart;
-sudo cat - << 'EOF' | sudo tee /etc/needrestart/conf.d/custom.conf
+sudo tee /etc/needrestart/conf.d/custom.conf << 'EOF'
 #Automatically restart services without prompting
-$nrconf{restart} = 'a';
+$nrconf{restart} = 'a'
 EOF
 
+
 #fail2ban cfg
-sudo apt install fail2ban;
 cat - << 'EOF' | sudo tee /etc/fail2ban/jail.local
 [DEFAULT]
 # Whitelist your own IP address or subnet to avoid locking yourself out
